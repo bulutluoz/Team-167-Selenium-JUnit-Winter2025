@@ -1,22 +1,15 @@
 package day02_junitFramework;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class C02_TestNotasyonu {
-    /*
-        @BeforeEach her test method'undan once otopmatik olarak calismasini istedigimiz
-                    bir method varsa, bu method'u isaretlemek icin kullanilir
-
-        @AfterEach  her test method'undan sonra otopmatik olarak calismasini istedigimiz
-                    bir method varsa, bu method'u isaretlemek icin kullanilir
-     */
+public class C05_Assertion {
 
     WebDriver driver;
 
@@ -47,7 +40,7 @@ public class C02_TestNotasyonu {
         } else System.out.println("Testotomasyonu testi FAILED");
     }
 
-    @Test // @Disabled  gecici olarak test methodunun calismamasini istiyorsak kullanilir
+    @Test
     public void wisequarterTesti() throws InterruptedException {
         // 2.method wisequarter anasayfaya gidin
         //          url'in wisequarter icerdigini test edin
@@ -73,12 +66,7 @@ public class C02_TestNotasyonu {
         String expectedUrl = "https://junit.org/junit5/";
         String actualUrl = driver.getCurrentUrl();
 
-        if (actualUrl.equals(expectedUrl)){
-            System.out.println("Junit testi PASSED");
-        } else {
-            System.out.println("Junit testi FAILED");
-            System.out.println("Acilan sayfa url i : " + actualUrl);
-        }
+        Assertions.assertEquals(expectedUrl,actualUrl);
 
     }
 }
