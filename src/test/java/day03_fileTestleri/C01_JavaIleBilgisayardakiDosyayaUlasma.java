@@ -1,5 +1,6 @@
 package day03_fileTestleri;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -42,6 +43,16 @@ public class C01_JavaIleBilgisayardakiDosyayaUlasma {
 
         String yanlisDosyaYolu2 = "src/test/java/day03_fileTestleri/deneme";
         System.out.println(Files.exists(Paths.get(yanlisDosyaYolu2))); // false
+
+        // day03 package'i altinda deneme.txt dosyasinin var oldugunu test edin
+        Assertions.assertTrue(Files.exists(Paths.get(dosyaYolu)));
+
+
+        // Masaustunde adi merhaba.docx olan bir dosya bulundugunu test edin
+
+        String merhabaDosyaYolu = "/Users/ahmetbulutluoz/Desktop/merhaba.docx";
+
+        Assertions.assertTrue(Files.exists(Paths.get(merhabaDosyaYolu)));
 
 
     }
